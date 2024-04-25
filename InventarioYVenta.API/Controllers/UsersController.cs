@@ -75,14 +75,14 @@ namespace InventarioYVenta.API.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var boolUser = await _context.Users.AnyAsync(userBd => userBd.Username.Equals(userVM.Username));
+                    var boolUser = await _context.Users.AnyAsync(userBd => userBd.Username!.Equals(userVM.Username));
 
                     if (boolUser)
                     {
                         return Ok(new { message = "Nombre de usuario en existencia." });
                     }
 
-                    PasswordSecurity.CreatePasswordHash(userVM.Password, out byte[] PasswordHashS, out byte[] PasswordSaltS);
+                    PasswordSecurity.CreatePasswordHash(userVM.Password!, out byte[] PasswordHashS, out byte[] PasswordSaltS);
 
                     User NewUser = new User()
                     {

@@ -247,3 +247,7 @@ C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.API\bin\Debu
 C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.API\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.API\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.API\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.API\bin\Debug\net6.0\InventarioYVenta.DAL.dll
+C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.API\bin\Debug\net6.0\InventarioYVenta.Models.dll
+C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.API\bin\Debug\net6.0\InventarioYVenta.DAL.pdb
+C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.API\bin\Debug\net6.0\InventarioYVenta.Models.pdb
