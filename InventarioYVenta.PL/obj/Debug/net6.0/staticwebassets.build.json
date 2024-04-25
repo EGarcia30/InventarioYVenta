@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "WabpDhyNgtl43gDm5yGMvfl5BQSq8FiTF3AZH6TbXqg=",
+  "Hash": "VL5un97I4aSbuzzGVmd2lRhQ3lf+hHFsuyGa56+fDDc=",
   "Source": "InventarioYVenta.PL",
   "BasePath": "_content/InventarioYVenta.PL",
   "Mode": "Default",
@@ -51,6 +51,23 @@
       "OriginalItemSpec": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.PL\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\InventarioYVenta.PL.bundle.scp.css"
     },
     {
+      "Identity": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.PL\\wwwroot\\css\\output.css",
+      "SourceId": "InventarioYVenta.PL",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.PL\\wwwroot\\",
+      "BasePath": "_content/InventarioYVenta.PL",
+      "RelativePath": "css/output.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\output.css"
+    },
+    {
       "Identity": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.PL\\wwwroot\\css\\site.css",
       "SourceId": "InventarioYVenta.PL",
       "SourceType": "Discovered",
@@ -66,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.PL\\wwwroot\\css\\site.output.css",
+      "SourceId": "InventarioYVenta.PL",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.PL\\wwwroot\\",
+      "BasePath": "_content/InventarioYVenta.PL",
+      "RelativePath": "css/site.output.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\site.output.css"
     },
     {
       "Identity": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.PL\\wwwroot\\favicon.ico",
@@ -102,12 +136,12 @@
       "OriginalItemSpec": "wwwroot\\js\\site.js"
     },
     {
-      "Identity": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.PL\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Identity": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.PL\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "SourceId": "InventarioYVenta.PL",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.PL\\wwwroot\\",
       "BasePath": "_content/InventarioYVenta.PL",
-      "RelativePath": "lib/jquery/dist/jquery.js",
+      "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -116,15 +150,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.js"
+      "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Identity": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.PL\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Identity": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.PL\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "SourceId": "InventarioYVenta.PL",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.PL\\wwwroot\\",
       "BasePath": "_content/InventarioYVenta.PL",
-      "RelativePath": "lib/jquery/dist/jquery.min.js",
+      "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -133,15 +167,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.js"
+      "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Identity": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.PL\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Identity": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.PL\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "SourceId": "InventarioYVenta.PL",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.PL\\wwwroot\\",
       "BasePath": "_content/InventarioYVenta.PL",
-      "RelativePath": "lib/jquery/dist/jquery.min.map",
+      "RelativePath": "lib/jquery-validation-unobtrusive/LICENSE.txt",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -150,24 +184,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.map"
-    },
-    {
-      "Identity": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.PL\\wwwroot\\lib\\jquery\\LICENSE.txt",
-      "SourceId": "InventarioYVenta.PL",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.PL\\wwwroot\\",
-      "BasePath": "_content/InventarioYVenta.PL",
-      "RelativePath": "lib/jquery/LICENSE.txt",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
+      "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
       "Identity": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.PL\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
@@ -255,12 +272,12 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Identity": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.PL\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Identity": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.PL\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "SourceId": "InventarioYVenta.PL",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.PL\\wwwroot\\",
       "BasePath": "_content/InventarioYVenta.PL",
-      "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
+      "RelativePath": "lib/jquery/dist/jquery.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -269,15 +286,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+      "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Identity": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.PL\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Identity": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.PL\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "SourceId": "InventarioYVenta.PL",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.PL\\wwwroot\\",
       "BasePath": "_content/InventarioYVenta.PL",
-      "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
+      "RelativePath": "lib/jquery/dist/jquery.min.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -286,15 +303,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+      "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Identity": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.PL\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Identity": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.PL\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "SourceId": "InventarioYVenta.PL",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.PL\\wwwroot\\",
       "BasePath": "_content/InventarioYVenta.PL",
-      "RelativePath": "lib/jquery-validation-unobtrusive/LICENSE.txt",
+      "RelativePath": "lib/jquery/dist/jquery.min.map",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -303,7 +320,24 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+      "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Identity": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.PL\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "SourceId": "InventarioYVenta.PL",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.PL\\wwwroot\\",
+      "BasePath": "_content/InventarioYVenta.PL",
+      "RelativePath": "lib/jquery/LICENSE.txt",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
     }
   ]
 }

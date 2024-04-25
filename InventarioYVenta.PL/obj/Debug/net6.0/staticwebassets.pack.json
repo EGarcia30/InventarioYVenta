@@ -5,8 +5,16 @@
       "PackagePath": "staticwebassets\\InventarioYVenta.PL.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.PL\\wwwroot\\css\\output.css",
+      "PackagePath": "staticwebassets\\css\\output.css"
+    },
+    {
       "Id": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.PL\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.PL\\wwwroot\\css\\site.output.css",
+      "PackagePath": "staticwebassets\\css\\site.output.css"
     },
     {
       "Id": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.PL\\wwwroot\\favicon.ico",
