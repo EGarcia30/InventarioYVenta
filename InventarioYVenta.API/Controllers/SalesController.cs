@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace InventarioYVenta.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class SalesController : ControllerBase
     {
@@ -75,7 +75,7 @@ namespace InventarioYVenta.API.Controllers
             {
                 if(SaleVM == null)
                 {
-                    return NotFound();
+                    return NotFound(new { message = "Datos no enviados." });
                 }
 
                 Sale NewSale = new Sale()
@@ -89,6 +89,7 @@ namespace InventarioYVenta.API.Controllers
                     CreatedAt = DateTime.Now
                 };
 
+                await AmountProductAsync(SaleVM.InventoryId, SaleVM.Amount);
                 _context.Sales.Add(NewSale);
                 await _context.SaveChangesAsync();
 
@@ -107,17 +108,14 @@ namespace InventarioYVenta.API.Controllers
         {
             try
             {
-                if(id != SaleVM.SaleId || SaleVM == null)
-                {
-                    return NotFound();
-                }
+                if(id != SaleVM.SaleId || SaleVM == null) return NotFound(new { message = "el id no coincide o datos no enviados, intente otra vez." });
 
                 var saleBD = await _context.Sales.FirstOrDefaultAsync(saleBd => saleBd.SaleId.Equals(id));
 
-                if(saleBD == null)
-                {
-                    return NotFound();
-                }
+                if(saleBD == null) return NotFound(new { message = "Venta no encontrada en base de datos." });
+
+                if (saleBD.Amount != SaleVM.Amount && SaleVM.Amount > saleBD.Amount) await AmountProductAsync(SaleVM.InventoryId, (SaleVM.Amount - saleBD.Amount));
+                if(saleBD.Amount != SaleVM.Amount && SaleVM.Amount < saleBD.Amount) await IncreaseAmountProductAsync(SaleVM.InventoryId, (saleBD.Amount - SaleVM.Amount));
 
                 saleBD.InventoryId= SaleVM.InventoryId;
                 saleBD.Name = SaleVM.Name;
@@ -139,6 +137,33 @@ namespace InventarioYVenta.API.Controllers
         }
 
         //Mandar al historial la venta
+        [HttpPut("{id}")]
+        public async Task<ActionResult> PutStatus(int? id, SaleVM SaleVM)
+        {
+            try
+            {
+                if (id != SaleVM.SaleId || SaleVM == null) return NotFound(new { message = "el id no coincide o datos no enviados, intente otra vez." });
+
+                var saleBD = await _context.Sales.FirstOrDefaultAsync(saleBd => saleBd.SaleId.Equals(id));
+
+                if (saleBD == null) return NotFound(new { message = "Venta no encontrada en base de datos." });
+
+                saleBD.Status = 0;
+                saleBD.DeletedAt = DateTime.Now;
+
+                _context.Sales.Update(saleBD);
+                await _context.SaveChangesAsync();
+
+                return Ok(new { message = "Venta enviada al historial." });
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error: {ex.Message}");
+            }
+        }
+
+        //Eliminar venta
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteSale(int? id)
         {
@@ -146,14 +171,14 @@ namespace InventarioYVenta.API.Controllers
             {
                 if(id == null)
                 {
-                    return NotFound();
+                    return NotFound(new { message = "Id no encontrado." });
                 }
 
                 var saleBD = await _context.Sales.FirstOrDefaultAsync(saleBd => saleBd.SaleId.Equals(id));
 
                 if(saleBD == null)
                 {
-                    return NotFound();
+                    return NotFound(new { message = "Venta no encontrada." });
                 }
 
                 _context.Sales.Remove(saleBD);
@@ -161,6 +186,52 @@ namespace InventarioYVenta.API.Controllers
 
                 return NoContent();
 
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error: {ex.Message}");
+            }
+        }
+
+        //Restar cantidad a producto en inventario
+        private async Task AmountProductAsync(int? id, int? amount)
+        {
+            try
+            {
+                if(id == null) return;
+                if (amount == null) return;
+
+                var productBD = await _context.Inventories.FirstOrDefaultAsync(prodBD => prodBD.InventoryId.Equals(id));
+
+                if (productBD == null) return;
+                
+                productBD.Amount -= amount;
+                productBD.UpdatedAt = DateTime.Now;
+
+                _context.Inventories.Update(productBD);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error: {ex.Message}");
+            }
+        }
+
+        //incrementar cantidad a producto en inventario
+        private async Task IncreaseAmountProductAsync(int? id, int? amount)
+        {
+            try
+            {
+                if (id == null) return;
+                if (amount == null) return;
+
+                var productBD = await _context.Inventories.FirstOrDefaultAsync(prodBD => prodBD.InventoryId.Equals(id));
+
+                if (productBD == null) return;
+
+                productBD.Amount += amount;
+                productBD.UpdatedAt = DateTime.Now;
+
+                _context.Inventories.Update(productBD);
             }
             catch (Exception ex)
             {

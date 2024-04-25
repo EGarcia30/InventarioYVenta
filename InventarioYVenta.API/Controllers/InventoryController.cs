@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace InventarioYVenta.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class InventoryController : ControllerBase
     {
@@ -48,14 +48,14 @@ namespace InventarioYVenta.API.Controllers
             {
                 if(id == null)
                 {
-                    return NotFound();
+                    return NotFound(new { message = "El id es nulo." });
                 }
 
                 var productBD = await _context.Inventories.FirstOrDefaultAsync(productBd => productBd.InventoryId.Equals(id));
 
                 if(productBD == null)
                 {
-                    return NotFound();
+                    return NotFound(new { message = "El producto en el inventario no encontrado." });
                 }
 
                 return Ok(productBD);
@@ -68,14 +68,14 @@ namespace InventarioYVenta.API.Controllers
         }
 
         //añadir producto a inventario
-        [HttpPost("{id}")]
+        [HttpPost]
         public async Task<ActionResult> AddProduct(InventoryVM InventoryVM)
         {
             try
             {
                 if(InventoryVM == null)
                 {
-                    return NotFound();
+                    return NotFound(new { message = "Datos no enviados." });
                 }
 
                 var inventoryBD = await _context.Inventories.FirstOrDefaultAsync(inventoryBb => inventoryBb.Name.Equals(InventoryVM.Name));
@@ -83,7 +83,7 @@ namespace InventarioYVenta.API.Controllers
                 if(inventoryBD != null)
                 {
                     inventoryBD.Name = InventoryVM.Name;
-                    inventoryBD.Amount = InventoryVM.Amount;
+                    inventoryBD.Amount += InventoryVM.Amount;
                     inventoryBD.UnitPurchasePrice = InventoryVM.UnitPurchasePrice;
                     inventoryBD.UnitSalesPrice = InventoryVM.UnitSalesPrice;
                     inventoryBD.UpdatedAt= DateTime.Now;
@@ -124,14 +124,14 @@ namespace InventarioYVenta.API.Controllers
             {
                 if(id != InventoryVM.InventoryId)
                 {
-                    return BadRequest();
+                    return BadRequest(new { message = "El id no coincide con el modelo." });
                 }
 
                 var inventoryBD = await _context.Inventories.FirstOrDefaultAsync(inventoryBb => inventoryBb.InventoryId.Equals(id));
 
                 if (inventoryBD == null)
                 {
-                    return NotFound();
+                    return NotFound(new { message = "Producto no encontrado en el inventario." });
                 }
 
                 inventoryBD.Name = InventoryVM.Name;
@@ -152,6 +152,38 @@ namespace InventarioYVenta.API.Controllers
         }
 
         //Mandar al historial el producto del inventario
+        [HttpPut("{id}")]
+        public async Task<ActionResult> PutStatus(int? id, InventoryVM InventoryVM)
+        {
+            try
+            {
+                if (id != InventoryVM.InventoryId)
+                {
+                    return BadRequest(new { message = "El id no coincide con el modelo." });
+                }
+
+                var inventoryBD = await _context.Inventories.FirstOrDefaultAsync(inventoryBb => inventoryBb.InventoryId.Equals(id));
+
+                if (inventoryBD == null)
+                {
+                    return NotFound(new { message = "Producto no encontrado en el inventario." });
+                }
+
+                inventoryBD.Status = 0;
+                inventoryBD.DeletedAt = DateTime.Now;
+
+                _context.Update(inventoryBD);
+                await _context.SaveChangesAsync();
+
+                return Ok(new { message = "Producto en inventario enviado al historial." });
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error: {ex.Message}");
+            }
+        }
+
+        //eliminar producto del inventario
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteProduct(int? id)
         {

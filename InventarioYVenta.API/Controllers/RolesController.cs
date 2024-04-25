@@ -11,7 +11,7 @@ using InventarioYVenta.API.ViewModels;
 
 namespace InventarioYVenta.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class RolesController : ControllerBase
     {
@@ -82,6 +82,7 @@ namespace InventarioYVenta.API.Controllers
                     Role NewRole = new Role()
                     {
                         Name = roleVM.Name,
+                        Status = 1,
                         CreatedAt = DateTime.Now,
                     };
 
@@ -129,6 +130,39 @@ namespace InventarioYVenta.API.Controllers
 
             }
             catch(Exception ex)
+            {
+                throw new Exception($"Error: {ex.Message}");
+            }
+        }
+
+        [HttpPut("{id}")]
+        //Mandar al historial
+        public async Task<IActionResult> PutStatus(int id, RoleVM roleVM)
+        {
+            try
+            {
+                if (id != roleVM.RolId)
+                {
+                    return BadRequest(new { message =  "El id no coincide con el modelo." });
+                }
+
+                var roleBD = await _context.Roles.FirstOrDefaultAsync(userBd => userBd.RolId.Equals(id));
+
+                if (roleBD == null)
+                {
+                    return NotFound(new { message = "El rol no es encontrado." });
+                }
+
+                roleBD.Status = 0;
+                roleBD.DeletedAt = DateTime.Now;
+
+                _context.Update(roleBD);
+                await _context.SaveChangesAsync();
+
+                return Ok(new { message = "Rol al historial." });
+
+            }
+            catch (Exception ex)
             {
                 throw new Exception($"Error: {ex.Message}");
             }

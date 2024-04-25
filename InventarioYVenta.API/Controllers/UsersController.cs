@@ -10,7 +10,7 @@ using System.Collections;
 
 namespace InventarioYVenta.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class UsersController : ControllerBase
     {
@@ -124,18 +124,16 @@ namespace InventarioYVenta.API.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var boolUser = await _context.Users.AnyAsync(userBd => userBd.Username.Equals(updateUserVM.Username));
-
-                    if (boolUser)
+                    if(id != updateUserVM.UserId)
                     {
-                        return Ok(new { message = "Nombre de usuario en existencia." });
+                        return NotFound(new { message = "El Id no coincide con el id del modelo." });
                     }
 
                     var userBD = await _context.Users.FirstOrDefaultAsync(userBd => userBd.UserId.Equals(id));
 
                     if (userBD == null)
                     {
-                        return NotFound();
+                        return NotFound(new { message = "No se encontro usuario en base de datos, intente de nuevo." });
                     }
 
                     userBD.Name = updateUserVM.Name;
@@ -164,8 +162,40 @@ namespace InventarioYVenta.API.Controllers
         }
 
         //Historial un usuario
+        [HttpPut("{id}")]
+        public async Task<ActionResult> PutStatus(int? id, UpdateUserVM updateUserVM)
+        {
+            try
+            {
+                if (id != updateUserVM.UserId)
+                {
+                    return NotFound(new { message = "El Id no coincide con el id del modelo." });
+                }
+
+                var userBD = await _context.Users.FirstOrDefaultAsync(userBd => userBd.UserId.Equals(id));
+
+                if (userBD == null)
+                {
+                    return NotFound(new { message = "No se encontro usuario en base de datos, intente de nuevo." });
+                }
+
+                userBD.Status = 0;
+                userBD.DeletedAt = DateTime.Now;
+
+                _context.Update(userBD);
+                await _context.SaveChangesAsync();
+
+                return Ok(new { message = "Usuario enviado al historial." });
+            }
+            catch(Exception ex)
+            {
+                throw new Exception($"Error {ex.Message}");
+            }
+        }
+
+        //Eliminar
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteUser([FromBody] int? id)
+        public async Task<IActionResult> DeleteUser(int? id)
         {
             try
             {

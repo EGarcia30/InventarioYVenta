@@ -14,8 +14,8 @@ namespace InventarioYVenta.API.Models
         public string? PhoneNumber { get; set; }
         public string? Username { get; set; }
         public string? Email { get; set; }
-        public byte[]? PasswordHash { get; set; }
-        public byte[]? PasswordSalt { get; set; }
+        public byte[]? PasswordHash { get; set; } = new byte[32];
+        public byte[]? PasswordSalt { get; set; } = new byte[32];
         public int? RolId { get; set; }
         public int? Status { get; set; }
         public DateTime? CreatedAt { get; set; }
