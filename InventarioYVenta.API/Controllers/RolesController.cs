@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using InventarioYVenta.API.Context;
-using InventarioYVenta.API.Models;
-using InventarioYVenta.API.ViewModels;
+using InventarioYVenta.DAL.Context;
+using InventarioYVenta.Models.Models;
+using InventarioYVenta.Models.ViewModels;
 
 namespace InventarioYVenta.API.Controllers
 {

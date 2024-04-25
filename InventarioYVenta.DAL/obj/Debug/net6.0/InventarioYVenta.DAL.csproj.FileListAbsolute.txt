@@ -1,0 +1,14 @@
+C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.DAL\bin\Debug\net6.0\InventarioYVenta.DAL.deps.json
+C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.DAL\bin\Debug\net6.0\InventarioYVenta.DAL.runtimeconfig.json
+C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.DAL\bin\Debug\net6.0\InventarioYVenta.DAL.dll
+C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.DAL\bin\Debug\net6.0\InventarioYVenta.DAL.pdb
+C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.DAL\obj\Debug\net6.0\InventarioYVenta.DAL.csproj.AssemblyReference.cache
+C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.DAL\obj\Debug\net6.0\InventarioYVenta.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.DAL\obj\Debug\net6.0\InventarioYVenta.DAL.AssemblyInfoInputs.cache
+C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.DAL\obj\Debug\net6.0\InventarioYVenta.DAL.AssemblyInfo.cs
+C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.DAL\obj\Debug\net6.0\InventarioYVenta.DAL.csproj.CoreCompileInputs.cache
+C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.DAL\obj\Debug\net6.0\InventarioYVenta.DAL.dll
+C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.DAL\obj\Debug\net6.0\refint\InventarioYVenta.DAL.dll
+C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.DAL\obj\Debug\net6.0\InventarioYVenta.DAL.pdb
+C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.DAL\obj\Debug\net6.0\InventarioYVenta.DAL.genruntimeconfig.cache
+C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.DAL\obj\Debug\net6.0\ref\InventarioYVenta.DAL.dll

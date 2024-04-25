@@ -16,4 +16,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\InventarioYVenta.DAL\InventarioYVenta.DAL.csproj" />
+    <ProjectReference Include="..\InventarioYVenta.Models\InventarioYVenta.Models.csproj" />
+  </ItemGroup>
+
 </Project>

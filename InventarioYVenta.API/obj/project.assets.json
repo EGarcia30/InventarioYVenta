@@ -3815,6 +3815,30 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
+      },
+      "InventarioYVenta.DAL/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "InventarioYVenta.Models": "1.0.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.29"
+        },
+        "compile": {
+          "bin/placeholder/InventarioYVenta.DAL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/InventarioYVenta.DAL.dll": {}
+        }
+      },
+      "InventarioYVenta.Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/InventarioYVenta.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/InventarioYVenta.Models.dll": {}
+        }
       }
     }
   },
@@ -10888,10 +10912,22 @@
         "system.xml.xdocument.4.3.0.nupkg.sha512",
         "system.xml.xdocument.nuspec"
       ]
+    },
+    "InventarioYVenta.DAL/1.0.0": {
+      "type": "project",
+      "path": "../InventarioYVenta.DAL/InventarioYVenta.DAL.csproj",
+      "msbuildProject": "../InventarioYVenta.DAL/InventarioYVenta.DAL.csproj"
+    },
+    "InventarioYVenta.Models/1.0.0": {
+      "type": "project",
+      "path": "../InventarioYVenta.Models/InventarioYVenta.Models.csproj",
+      "msbuildProject": "../InventarioYVenta.Models/InventarioYVenta.Models.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "InventarioYVenta.DAL >= 1.0.0",
+      "InventarioYVenta.Models >= 1.0.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.29",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.29",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 6.0.16",
@@ -10924,7 +10960,14 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.DAL\\InventarioYVenta.DAL.csproj": {
+              "projectPath": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.DAL\\InventarioYVenta.DAL.csproj"
+            },
+            "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.Models\\InventarioYVenta.Models.csproj": {
+              "projectPath": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.Models\\InventarioYVenta.Models.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

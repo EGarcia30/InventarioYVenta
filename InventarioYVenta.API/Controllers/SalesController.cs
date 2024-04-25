@@ -1,6 +1,6 @@
-﻿using InventarioYVenta.API.Context;
-using InventarioYVenta.API.Models;
-using InventarioYVenta.API.ViewModels;
+﻿using InventarioYVenta.DAL.Context;
+using InventarioYVenta.Models.Models;
+using InventarioYVenta.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
