@@ -21,6 +21,14 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.PL\\wwwroot\\img\\logo.png",
+      "PackagePath": "staticwebassets\\img\\logo.png"
+    },
+    {
+      "Id": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.PL\\wwwroot\\js\\password.js",
+      "PackagePath": "staticwebassets\\js\\password.js"
+    },
+    {
       "Id": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.PL\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

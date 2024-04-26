@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "VL5un97I4aSbuzzGVmd2lRhQ3lf+hHFsuyGa56+fDDc=",
+  "Hash": "R9yAiJHWcmeIQd/3U47Y5I8LAxvMbbaV78693A1Ir/0=",
   "Source": "InventarioYVenta.PL",
   "BasePath": "_content/InventarioYVenta.PL",
   "Mode": "Default",
@@ -117,6 +117,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.PL\\wwwroot\\img\\logo.png",
+      "SourceId": "InventarioYVenta.PL",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.PL\\wwwroot\\",
+      "BasePath": "_content/InventarioYVenta.PL",
+      "RelativePath": "img/logo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\logo.png"
+    },
+    {
+      "Identity": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.PL\\wwwroot\\js\\password.js",
+      "SourceId": "InventarioYVenta.PL",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.PL\\wwwroot\\",
+      "BasePath": "_content/InventarioYVenta.PL",
+      "RelativePath": "js/password.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\password.js"
     },
     {
       "Identity": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.PL\\wwwroot\\js\\site.js",
