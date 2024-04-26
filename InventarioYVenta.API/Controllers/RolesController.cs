@@ -57,7 +57,7 @@ namespace InventarioYVenta.API.Controllers
                     return NotFound();
                 }
 
-                return role;
+                return Ok(role);
             }
             catch (Exception ex)
             {
