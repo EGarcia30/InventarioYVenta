@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 namespace InventarioYVenta.PL.Helpers;
 
 public class Auth{
-    public async static void CreateCookie(HttpContext httpContext, User user, string rol){
+    public async static Task CreateCookie(HttpContext httpContext, User user, string rol){
         var claims = new List<Claim>
         {
             new Claim("UserId", user.UserId.ToString()!),
@@ -27,7 +27,7 @@ public class Auth{
         await httpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
     }
 
-    public async static void DeleteCookie(HttpContext httpContext){
+    public async static Task DeleteCookie(HttpContext httpContext){
         await httpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
     }
 }

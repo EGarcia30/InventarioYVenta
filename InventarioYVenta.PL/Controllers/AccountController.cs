@@ -1,7 +1,6 @@
 ﻿using InventarioYVenta.Models.Models;
 using InventarioYVenta.Models.ViewModels;
 using InventarioYVenta.PL.Helpers;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 using System.Text.Json;
@@ -54,8 +53,9 @@ namespace InventarioYVenta.PL.Controllers
                                         var rolSuccess = await responseRol.Content.ReadAsStringAsync();
                                         var rolBD = JsonSerializer.Deserialize<Role>(rolSuccess, _JsonOptions);
 
-                                        Auth.CreateCookie(HttpContext, userBD, rolBD!.Name!);
-                                        break;
+                                        await Auth.CreateCookie(HttpContext, userBD, rolBD!.Name!);
+
+                                        return RedirectToAction("Dashboard", "Admin");
                                     case HttpStatusCode.NotFound:
                                         var rolError = await responseRol.Content.ReadAsStringAsync();
                                         var msgRol = JsonSerializer.Deserialize<MessageError>(rolError, _JsonOptions);
@@ -64,7 +64,6 @@ namespace InventarioYVenta.PL.Controllers
                                     default:
                                         return View();
                                 }
-                                break;
                             case HttpStatusCode.NotFound:
                             case HttpStatusCode.BadRequest:
                                 var responseError = await response.Content.ReadAsStringAsync();
@@ -81,6 +80,12 @@ namespace InventarioYVenta.PL.Controllers
             catch(Exception ex){
                 throw new Exception($"Error: {ex.Message}");
             }
+        }
+    
+        // *! funcion de log out o cerrar sesion(eliminacion de cookie)
+        public async Task<IActionResult> LogOut(){
+            await Auth.DeleteCookie(HttpContext);
+            return RedirectToAction("Index", "Account");
         }
     }
 }

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "R9yAiJHWcmeIQd/3U47Y5I8LAxvMbbaV78693A1Ir/0=",
+  "Hash": "AkhnYrgxOkHGCv73U+r4mW5a6FVNLQbBL+BIztU2YSY=",
   "Source": "InventarioYVenta.PL",
   "BasePath": "_content/InventarioYVenta.PL",
   "Mode": "Default",
@@ -134,6 +134,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\logo.png"
+    },
+    {
+      "Identity": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.PL\\wwwroot\\js\\modal.js",
+      "SourceId": "InventarioYVenta.PL",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.PL\\wwwroot\\",
+      "BasePath": "_content/InventarioYVenta.PL",
+      "RelativePath": "js/modal.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\modal.js"
     },
     {
       "Identity": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.PL\\wwwroot\\js\\password.js",
