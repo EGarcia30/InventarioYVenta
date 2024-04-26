@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +12,12 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     options.LoginPath = "/";
     options.ExpireTimeSpan = TimeSpan.FromMinutes(10);
     options.AccessDeniedPath = "/";
+});
+
+//Authorize de Policy
+builder.Services.AddAuthorization(options => {
+    options.AddPolicy("Administrador", policy => policy.RequireRole(ClaimTypes.Role,"Administrador"));
+    options.AddPolicy("Usuario", policy => policy.RequireRole(ClaimTypes.Role,"Usuario"));
 });
 
 var app = builder.Build();
@@ -28,6 +35,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
