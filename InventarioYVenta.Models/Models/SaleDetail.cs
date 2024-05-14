@@ -3,15 +3,11 @@ using System.Collections.Generic;
 
 namespace InventarioYVenta.Models.Models
 {
-    public partial class Inventory
+    public partial class SaleDetail
     {
-        public Inventory()
-        {
-            Invoces = new HashSet<Invoce>();
-            SaleDetails = new HashSet<SaleDetail>();
-        }
-
-        public int InventoryId { get; set; }
+        public int SaleDetailId { get; set; }
+        public int? SaleId { get; set; }
+        public int? InventoryId { get; set; }
         public string? Name { get; set; }
         public int? Amount { get; set; }
         public decimal? UnitPurchasePrice { get; set; }
@@ -21,7 +17,7 @@ namespace InventarioYVenta.Models.Models
         public DateTime? UpdatedAt { get; set; }
         public DateTime? DeletedAt { get; set; }
 
-        public virtual ICollection<Invoce> Invoces { get; set; }
-        public virtual ICollection<SaleDetail> SaleDetails { get; set; }
+        public virtual Inventory? Inventory { get; set; }
+        public virtual Sale? Sale { get; set; }
     }
 }

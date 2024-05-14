@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using InventarioYVenta.Models.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using InventarioYVenta.DAL;
+using InventarioYVenta.Models.Models;
 
 namespace InventarioYVenta.DAL.Context
 {
@@ -21,6 +22,7 @@ namespace InventarioYVenta.DAL.Context
         public virtual DbSet<Invoce> Invoces { get; set; } = null!;
         public virtual DbSet<Role> Roles { get; set; } = null!;
         public virtual DbSet<Sale> Sales { get; set; } = null!;
+        public virtual DbSet<SaleDetail> SaleDetails { get; set; } = null!;
         public virtual DbSet<User> Users { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -28,7 +30,7 @@ namespace InventarioYVenta.DAL.Context
 //            if (!optionsBuilder.IsConfigured)
 //            {
 //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-//                optionsBuilder.UseSqlServer("Server= DESKTOP-DARCKLB\\SQLEXPRESS; Database= InventarioYVenta; Trusted_Connection= True;");
+//                optionsBuilder.UseSqlServer("Server=DESKTOP-DARCKLB\\SQLEXPRESS; Database=InventarioYVenta; Trusted_Connection=True;");
 //            }
         }
 
@@ -155,6 +157,36 @@ namespace InventarioYVenta.DAL.Context
 
                 entity.Property(e => e.SaleId).HasColumnName("sale_id");
 
+                entity.Property(e => e.CreatedAt)
+                    .HasColumnType("datetime")
+                    .HasColumnName("created_at");
+
+                entity.Property(e => e.DeletedAt)
+                    .HasColumnType("datetime")
+                    .HasColumnName("deleted_at");
+
+                entity.Property(e => e.Name)
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("name");
+
+                entity.Property(e => e.Status).HasColumnName("status");
+
+                entity.Property(e => e.Total)
+                    .HasColumnType("decimal(18, 2)")
+                    .HasColumnName("total");
+
+                entity.Property(e => e.UpdatedAt)
+                    .HasColumnType("datetime")
+                    .HasColumnName("updated_at");
+            });
+
+            modelBuilder.Entity<SaleDetail>(entity =>
+            {
+                entity.ToTable("sale_detail");
+
+                entity.Property(e => e.SaleDetailId).HasColumnName("sale_detail_id");
+
                 entity.Property(e => e.Amount).HasColumnName("amount");
 
                 entity.Property(e => e.CreatedAt)
@@ -172,6 +204,8 @@ namespace InventarioYVenta.DAL.Context
                     .IsUnicode(false)
                     .HasColumnName("name");
 
+                entity.Property(e => e.SaleId).HasColumnName("sale_id");
+
                 entity.Property(e => e.Status).HasColumnName("status");
 
                 entity.Property(e => e.UnitPurchasePrice)
@@ -187,9 +221,14 @@ namespace InventarioYVenta.DAL.Context
                     .HasColumnName("updated_at");
 
                 entity.HasOne(d => d.Inventory)
-                    .WithMany(p => p.Sales)
+                    .WithMany(p => p.SaleDetails)
                     .HasForeignKey(d => d.InventoryId)
-                    .HasConstraintName("fk_inventory_sale");
+                    .HasConstraintName("fk_inventory_sale_detail");
+
+                entity.HasOne(d => d.Sale)
+                    .WithMany(p => p.SaleDetails)
+                    .HasForeignKey(d => d.SaleId)
+                    .HasConstraintName("fk_sale_sale_detail");
             });
 
             modelBuilder.Entity<User>(entity =>
