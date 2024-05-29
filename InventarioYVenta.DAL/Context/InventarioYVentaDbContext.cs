@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using InventarioYVenta.DAL;
 using InventarioYVenta.Models.Models;
+using InventarioYVenta.Models.ViewModels;
 
 namespace InventarioYVenta.DAL.Context
 {
@@ -24,6 +24,9 @@ namespace InventarioYVenta.DAL.Context
         public virtual DbSet<Sale> Sales { get; set; } = null!;
         public virtual DbSet<SaleDetail> SaleDetails { get; set; } = null!;
         public virtual DbSet<User> Users { get; set; } = null!;
+        public virtual DbSet<ResponseVM> ResponseVM { get; set; } = null!;
+
+        public virtual DbSet<SaleListVM> SaleListVMs { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -165,11 +168,6 @@ namespace InventarioYVenta.DAL.Context
                     .HasColumnType("datetime")
                     .HasColumnName("deleted_at");
 
-                entity.Property(e => e.Name)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("name");
-
                 entity.Property(e => e.Status).HasColumnName("status");
 
                 entity.Property(e => e.Total)
@@ -302,6 +300,10 @@ namespace InventarioYVenta.DAL.Context
                     .HasForeignKey(d => d.RolId)
                     .HasConstraintName("fk_rol_user");
             });
+
+            modelBuilder.Entity<ResponseVM>().ToView(null);
+
+            modelBuilder.Entity<SaleListVM>().ToView(null);
 
             OnModelCreatingPartial(modelBuilder);
         }

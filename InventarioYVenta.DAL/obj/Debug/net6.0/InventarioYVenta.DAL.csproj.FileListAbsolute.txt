@@ -14,4 +14,5 @@ C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.DAL\obj\Debu
 C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.DAL\obj\Debug\net6.0\ref\InventarioYVenta.DAL.dll
 C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.DAL\bin\Debug\net6.0\InventarioYVenta.Models.dll
 C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.DAL\bin\Debug\net6.0\InventarioYVenta.Models.pdb
-C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.DAL\obj\Debug\net6.0\InventarioYVenta.DAL.csproj.CopyComplete
+C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.DAL\obj\Debug\net6.0\InventarioYVenta.DAL.sourcelink.json
+C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.DAL\obj\Debug\net6.0\Inventar.B098A928.Up2Date

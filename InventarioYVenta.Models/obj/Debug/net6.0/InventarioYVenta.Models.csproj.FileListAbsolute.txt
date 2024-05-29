@@ -1,7 +1,6 @@
 C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.Models\bin\Debug\net6.0\InventarioYVenta.Models.deps.json
 C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.Models\bin\Debug\net6.0\InventarioYVenta.Models.dll
 C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.Models\bin\Debug\net6.0\InventarioYVenta.Models.pdb
-C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.Models\obj\Debug\net6.0\InventarioYVenta.Models.csproj.AssemblyReference.cache
 C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.Models\obj\Debug\net6.0\InventarioYVenta.Models.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.Models\obj\Debug\net6.0\InventarioYVenta.Models.AssemblyInfoInputs.cache
 C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.Models\obj\Debug\net6.0\InventarioYVenta.Models.AssemblyInfo.cs
@@ -10,3 +9,4 @@ C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.Models\obj\D
 C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.Models\obj\Debug\net6.0\refint\InventarioYVenta.Models.dll
 C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.Models\obj\Debug\net6.0\InventarioYVenta.Models.pdb
 C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.Models\obj\Debug\net6.0\ref\InventarioYVenta.Models.dll
+C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.Models\obj\Debug\net6.0\InventarioYVenta.Models.sourcelink.json
