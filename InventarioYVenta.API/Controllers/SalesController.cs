@@ -2,7 +2,9 @@
 using InventarioYVenta.Models.Models;
 using InventarioYVenta.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -13,6 +15,9 @@ namespace InventarioYVenta.API.Controllers
     public class SalesController : ControllerBase
     {
         private readonly InventarioYVentaDbContext _context;
+        private int validatorVM = 0;
+        private string messageVM = string.Empty;
+        private int saleIdVM= 0;
 
         public SalesController(InventarioYVentaDbContext context)
         {
@@ -21,16 +26,15 @@ namespace InventarioYVenta.API.Controllers
 
         //Obtener lista de ventas
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Sale>>> GetSales()
+        public async Task<ActionResult<List<SaleListVM>>> GetSales()
         {
             try
             {
-                if(_context.Sales == null)
-                {
-                    return NotFound();
-                }
+                if(_context.Sales == null || _context.SaleDetails == null) return NotFound(new { message = "Realizar una venta."});
 
-                var salesList = await _context.Sales.Where(saleBD => saleBD.Status == 1).ToListAsync();
+                var salesList = await _context.SaleListVMs.FromSqlRaw("sp_GetSales").ToListAsync();
+
+                if (salesList == null) return NotFound(new { message = "No se ha realizado ninguna venta." });
 
                 return Ok(salesList);
 
@@ -43,21 +47,17 @@ namespace InventarioYVenta.API.Controllers
 
         //Obtener venta
         [HttpGet("{id}")]
-        public async Task<ActionResult<Sale>> GeSale(int? id)
+        public async Task<ActionResult<SaleListVM>> GetSale(int? id)
         {
             try
             {
-                if(id == null)
-                {
-                    return NotFound();
-                }
+                if(id == null) return NotFound(new {message = "Id de la venta no encontrado."});
 
-                var saleBD = await _context.Sales.FirstOrDefaultAsync(saleBd => saleBd.SaleId.Equals(id));
+                SqlParameter SaleId = new SqlParameter("@id", id);
+                var saleBD = await _context.SaleListVMs.FromSqlRaw($"sp_GetSaleId @id", SaleId).ToListAsync();
 
-                if(saleBD == null)
-                { 
-                    return NotFound();
-                }
+
+                if(saleBD == null) return NotFound(new { message = "Venta no encontrada."});
 
                 return Ok(saleBD);
             }
@@ -69,30 +69,37 @@ namespace InventarioYVenta.API.Controllers
 
         //añadir venta
         [HttpPost]
-        public async Task<ActionResult> AddSale(SaleVM SaleVM)
+        public async Task<ActionResult> AddSale(List<InventoryVM> products, decimal total)
         {
             try
             {
-                if(SaleVM == null)
+                SqlParameter TotalParameter = new SqlParameter("@total", total);
+                var res = await _context.ResponseVM.FromSqlRaw("sp_AddSale @total", TotalParameter).ToListAsync();
+
+                res.ForEach(r =>
                 {
-                    return NotFound(new { message = "Datos no enviados." });
+                    validatorVM = r.Validator;
+                    messageVM = r.Message!;
+                });
+
+                if (validatorVM == 0) return BadRequest(new { message = messageVM.ToString() });
+
+                string query = "sp_AddDetailSale @sale_id, @inventory_id, @name, @amount, @unit_purchase_price, @unit_sales_price";
+                foreach (var product in products)
+                {
+                    SqlParameter[] productModel =
+                    {
+                        new SqlParameter("@sale_id", Convert.ToInt32(messageVM.ToString())),
+                        new SqlParameter("@inventory_id", product.InventoryId),
+                        new SqlParameter("@name", product.Name),
+                        new SqlParameter("@amount", product.Amount),
+                        new SqlParameter("@unit_purchase_price", product.UnitPurchasePrice),
+                        new SqlParameter("@unit_sales_price", product.UnitSalesPrice),
+                    };
+                    await _context.Database.ExecuteSqlRawAsync(query, productModel);
+                    await AmountProductAsync(product.InventoryId, product.Amount);
                 }
-
-                Sale NewSale = new Sale()
-                {
-                    InventoryId= SaleVM.InventoryId,
-                    Name= SaleVM.Name,
-                    Amount=SaleVM.Amount,
-                    UnitPurchasePrice=SaleVM.UnitPurchasePrice,
-                    UnitSalesPrice=SaleVM.UnitSalesPrice,
-                    Status = 1,
-                    CreatedAt = DateTime.Now
-                };
-
-                await AmountProductAsync(SaleVM.InventoryId, SaleVM.Amount);
-                _context.Sales.Add(NewSale);
                 await _context.SaveChangesAsync();
-
                 return Ok(new {message = "Venta creada"});
 
             }
@@ -114,14 +121,14 @@ namespace InventarioYVenta.API.Controllers
 
                 if(saleBD == null) return NotFound(new { message = "Venta no encontrada en base de datos." });
 
-                if (saleBD.Amount != SaleVM.Amount && SaleVM.Amount > saleBD.Amount) await AmountProductAsync(SaleVM.InventoryId, (SaleVM.Amount - saleBD.Amount));
-                if(saleBD.Amount != SaleVM.Amount && SaleVM.Amount < saleBD.Amount) await IncreaseAmountProductAsync(SaleVM.InventoryId, (saleBD.Amount - SaleVM.Amount));
+                //if (saleBD.Amount != SaleVM.Amount && SaleVM.Amount > saleBD.Amount) await AmountProductAsync(SaleVM.InventoryId, (SaleVM.Amount - saleBD.Amount));
+                //if(saleBD.Amount != SaleVM.Amount && SaleVM.Amount < saleBD.Amount) await IncreaseAmountProductAsync(SaleVM.InventoryId, (saleBD.Amount - SaleVM.Amount));
 
-                saleBD.InventoryId= SaleVM.InventoryId;
-                saleBD.Name = SaleVM.Name;
-                saleBD.Amount = SaleVM.Amount;
-                saleBD.UnitPurchasePrice = SaleVM.UnitPurchasePrice;
-                saleBD.UnitSalesPrice= SaleVM.UnitSalesPrice;
+                //saleBD.InventoryId= SaleVM.InventoryId;
+                //saleBD.Name = SaleVM.Name;
+                //saleBD.Amount = SaleVM.Amount;
+                //saleBD.UnitPurchasePrice = SaleVM.UnitPurchasePrice;
+                //saleBD.UnitSalesPrice= SaleVM.UnitSalesPrice;
                 saleBD.UpdatedAt = DateTime.Now;
 
                 _context.Sales.Update(saleBD);
@@ -138,11 +145,11 @@ namespace InventarioYVenta.API.Controllers
 
         //Mandar al historial la venta
         [HttpPut("{id}")]
-        public async Task<ActionResult> PutStatus(int? id, SaleVM SaleVM)
+        public async Task<ActionResult> PutStatus(int? id)
         {
             try
             {
-                if (id != SaleVM.SaleId || SaleVM == null) return NotFound(new { message = "el id no coincide o datos no enviados, intente otra vez." });
+                //if (id != SaleVM.SaleId || SaleVM == null) return NotFound(new { message = "el id no coincide o datos no enviados, intente otra vez." });
 
                 var saleBD = await _context.Sales.FirstOrDefaultAsync(saleBd => saleBd.SaleId.Equals(id));
 

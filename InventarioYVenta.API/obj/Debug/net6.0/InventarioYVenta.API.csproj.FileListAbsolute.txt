@@ -55,7 +55,6 @@ C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.API\obj\Debu
 C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.API\obj\Debug\net6.0\staticwebassets.build.json
 C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.API\obj\Debug\net6.0\staticwebassets.development.json
 C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.API\obj\Debug\net6.0\scopedcss\bundle\InventarioYVenta.API.styles.css
-C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.API\obj\Debug\net6.0\InventarioYVenta.API.csproj.CopyComplete
 C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.API\obj\Debug\net6.0\InventarioYVenta.API.dll
 C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.API\obj\Debug\net6.0\refint\InventarioYVenta.API.dll
 C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.API\obj\Debug\net6.0\InventarioYVenta.API.pdb
@@ -251,3 +250,5 @@ C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.API\bin\Debu
 C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.API\bin\Debug\net6.0\InventarioYVenta.Models.dll
 C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.API\bin\Debug\net6.0\InventarioYVenta.DAL.pdb
 C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.API\bin\Debug\net6.0\InventarioYVenta.Models.pdb
+C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.API\obj\Debug\net6.0\InventarioYVenta.API.sourcelink.json
+C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.API\obj\Debug\net6.0\Inventar.F752CA9D.Up2Date
