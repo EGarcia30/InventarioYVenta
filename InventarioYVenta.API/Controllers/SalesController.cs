@@ -17,7 +17,6 @@ namespace InventarioYVenta.API.Controllers
         private readonly InventarioYVentaDbContext _context;
         private int validatorVM = 0;
         private string messageVM = string.Empty;
-        private int saleIdVM= 0;
 
         public SalesController(InventarioYVentaDbContext context)
         {
@@ -69,7 +68,7 @@ namespace InventarioYVenta.API.Controllers
 
         //añadir venta
         [HttpPost]
-        public async Task<ActionResult> AddSale(List<InventoryVM> products, decimal total)
+        public async Task<ActionResult> AddSale(List<InventoryVM> Products, decimal total)
         {
             try
             {
@@ -85,7 +84,7 @@ namespace InventarioYVenta.API.Controllers
                 if (validatorVM == 0) return BadRequest(new { message = messageVM.ToString() });
 
                 string query = "sp_AddDetailSale @sale_id, @inventory_id, @name, @amount, @unit_purchase_price, @unit_sales_price";
-                foreach (var product in products)
+                foreach (var product in Products)
                 {
                     SqlParameter[] productModel =
                     {
@@ -111,31 +110,43 @@ namespace InventarioYVenta.API.Controllers
 
         //Actualizar detalles de venta
         [HttpPut("{id}")]
-        public async Task<ActionResult> PutSale(int? id, SaleVM SaleVM)
+        public async Task<ActionResult> PutSale(int? id, decimal total , List<SaleListVM> Sales)
         {
             try
             {
-                if(id != SaleVM.SaleId || SaleVM == null) return NotFound(new { message = "el id no coincide o datos no enviados, intente otra vez." });
+                if(id == null || Sales.Count == 0) return NotFound(new { message = "El id no coincide o datos no enviados, intente otra vez." });
 
-                var saleBD = await _context.Sales.FirstOrDefaultAsync(saleBd => saleBd.SaleId.Equals(id));
+                SqlParameter[] sqlParameters =
+                {
+                    new SqlParameter("@id", id),
+                    new SqlParameter("@total", total)
+                };
+                await _context.Database.ExecuteSqlRawAsync("sp_PutSale @id, @total", sqlParameters);
 
-                if(saleBD == null) return NotFound(new { message = "Venta no encontrada en base de datos." });
+                string query = "sp_PutDetailSale @id, @amount";
+                foreach (var sale in Sales)
+                {
+                    int? amountBD = 0;
+                    SqlParameter SaleDetailId = new SqlParameter("@id", sale.SaleDetailId);
+                    var saleBD = await _context.SaleListVMs.FromSqlRaw("sp_GetSaleDetailId @id", SaleDetailId).ToListAsync();
 
-                //if (saleBD.Amount != SaleVM.Amount && SaleVM.Amount > saleBD.Amount) await AmountProductAsync(SaleVM.InventoryId, (SaleVM.Amount - saleBD.Amount));
-                //if(saleBD.Amount != SaleVM.Amount && SaleVM.Amount < saleBD.Amount) await IncreaseAmountProductAsync(SaleVM.InventoryId, (saleBD.Amount - SaleVM.Amount));
+                    saleBD.ForEach(r =>
+                    {
+                        amountBD = r.Amount;
+                    });
+                    
+                    if(amountBD != sale.Amount && sale.Amount > amountBD) await AmountProductAsync(sale.InventoryId, (sale.Amount - amountBD));
+                    if(amountBD != sale.Amount && sale.Amount < amountBD) await IncreaseAmountProductAsync(sale.InventoryId, (amountBD - sale.Amount));
 
-                //saleBD.InventoryId= SaleVM.InventoryId;
-                //saleBD.Name = SaleVM.Name;
-                //saleBD.Amount = SaleVM.Amount;
-                //saleBD.UnitPurchasePrice = SaleVM.UnitPurchasePrice;
-                //saleBD.UnitSalesPrice= SaleVM.UnitSalesPrice;
-                saleBD.UpdatedAt = DateTime.Now;
-
-                _context.Sales.Update(saleBD);
+                    SqlParameter[] saleModel =
+                    {
+                        new SqlParameter("@id", sale.SaleDetailId),
+                        new SqlParameter("@amount", sale.Amount),
+                    };
+                    await _context.Database.ExecuteSqlRawAsync(query, saleModel);
+                }
                 await _context.SaveChangesAsync();
-
                 return Ok(new { message = "Venta actualizada." });
-
             }
             catch(Exception ex)
             {
