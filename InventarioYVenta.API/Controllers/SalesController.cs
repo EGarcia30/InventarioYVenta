@@ -109,8 +109,8 @@ namespace InventarioYVenta.API.Controllers
         }
 
         //Actualizar detalles de venta
-        [HttpPut("{id}")]
-        public async Task<ActionResult> PutSale(int? id, decimal total , List<SaleListVM> Sales)
+        [HttpPut]
+        public async Task<ActionResult> PutSale(int? id, decimal total , List<SaleDetailVM> Sales)
         {
             try
             {
@@ -154,25 +154,31 @@ namespace InventarioYVenta.API.Controllers
             }
         }
 
-        //Mandar al historial la venta
-        [HttpPut("{id}")]
-        public async Task<ActionResult> PutStatus(int? id)
+        //Mandar al historial los detalles de venta
+        [HttpPut]
+        public async Task<ActionResult> PutSaleDetail(int? id, decimal total, List<SaleDetailVM> Sales)
         {
             try
             {
-                //if (id != SaleVM.SaleId || SaleVM == null) return NotFound(new { message = "el id no coincide o datos no enviados, intente otra vez." });
+                if (id == null || Sales.Count == 0) return NotFound(new { message = "El id no coincide o datos no enviados, intente otra vez." });
 
-                var saleBD = await _context.Sales.FirstOrDefaultAsync(saleBd => saleBd.SaleId.Equals(id));
+                SqlParameter[] sqlParameters =
+                {
+                    new SqlParameter("@id", id),
+                    new SqlParameter("@total", total)
+                };
+                await _context.Database.ExecuteSqlRawAsync("sp_PutSale @id, @total", sqlParameters);
 
-                if (saleBD == null) return NotFound(new { message = "Venta no encontrada en base de datos." });
+                foreach (var sale in Sales)
+                {
+                    await IncreaseAmountProductAsync(sale.InventoryId, sale.Amount);
 
-                saleBD.Status = 0;
-                saleBD.DeletedAt = DateTime.Now;
-
-                _context.Sales.Update(saleBD);
+                    SqlParameter saleDetailId = new SqlParameter("@id", sale.SaleDetailId);
+                    await _context.Database.ExecuteSqlRawAsync("sp_PutDetailSaleHistory @id", saleDetailId);
+                }
                 await _context.SaveChangesAsync();
 
-                return Ok(new { message = "Venta enviada al historial." });
+                return Ok(new { message = "Detalle de venta enviada al historial." });
 
             }
             catch (Exception ex)
@@ -181,33 +187,36 @@ namespace InventarioYVenta.API.Controllers
             }
         }
 
-        //Eliminar venta
-        [HttpDelete("{id}")]
-        public async Task<ActionResult> DeleteSale(int? id)
+        //mandar al historial las ventas con sus detalles
+        [HttpPut]
+        public async Task<ActionResult> PutSaleOff(int? id, List<SaleDetailVM> Sales)
         {
             try
             {
-                if(id == null)
+                if(id == null || Sales.Count == 0) return NotFound(new {message = "Id o datos no enviados correctamente."});
+
+                var saleBD = await _context.Sales.FirstOrDefaultAsync(sale => sale.SaleId == id);
+
+                if (saleBD == null) return NotFound(new {message = "Venta no encontrada." });
+
+                saleBD.Status = 0;
+                saleBD.DeletedAt = DateTime.Now;
+                _context.Sales.Update(saleBD);
+
+                //
+
+                foreach (var sale in Sales)
                 {
-                    return NotFound(new { message = "Id no encontrado." });
+                    SqlParameter saleDetailId = new SqlParameter("@id", sale.SaleDetailId);
+                    await _context.Database.ExecuteSqlRawAsync("sp_PutDetailSaleHistory @id", saleDetailId);
                 }
-
-                var saleBD = await _context.Sales.FirstOrDefaultAsync(saleBd => saleBd.SaleId.Equals(id));
-
-                if(saleBD == null)
-                {
-                    return NotFound(new { message = "Venta no encontrada." });
-                }
-
-                _context.Sales.Remove(saleBD);
                 await _context.SaveChangesAsync();
 
-                return NoContent();
+                return Ok(new {message = "Venta enviada al historial."});
 
             }
-            catch (Exception ex)
-            {
-                throw new Exception($"Error: {ex.Message}");
+            catch (Exception ex) { 
+                return BadRequest(ex.Message);
             }
         }
 
@@ -239,8 +248,7 @@ namespace InventarioYVenta.API.Controllers
         {
             try
             {
-                if (id == null) return;
-                if (amount == null) return;
+                if (id == null || amount == null) return;
 
                 var productBD = await _context.Inventories.FirstOrDefaultAsync(prodBD => prodBD.InventoryId.Equals(id));
 
