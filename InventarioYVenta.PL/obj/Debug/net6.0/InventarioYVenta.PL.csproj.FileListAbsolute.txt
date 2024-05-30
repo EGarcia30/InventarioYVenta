@@ -67,6 +67,7 @@ C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.PL\bin\Debug
 C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.PL\bin\Debug\net6.0\InventarioYVenta.Models.dll
 C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.PL\bin\Debug\net6.0\InventarioYVenta.DAL.pdb
 C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.PL\bin\Debug\net6.0\InventarioYVenta.Models.pdb
-C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.PL\obj\Debug\net6.0\InventarioYVenta.PL.csproj.CopyComplete
 C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.PL\bin\Debug\net6.0\package-lock.json
 C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.PL\bin\Debug\net6.0\package.json
+C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.PL\obj\Debug\net6.0\InventarioYVenta.PL.sourcelink.json
+C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.PL\obj\Debug\net6.0\Inventar.B67D0220.Up2Date

@@ -13,28 +13,34 @@
     <script src="https://kit.fontawesome.com/be9e926d45.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <!--Escritorio-->
     <aside id="sidebar" class="fixed z-20 h-full top-0 left-0 lg:flex flex-shrink-0 flex-col w-64 transition-width duration-75 hidden" aria-label="Sidebar">
         <div class="relative flex-1 flex flex-col min-h-0 border-r border-gray-200 bg-white pt-0">
             <div class="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
                 <nav class="flex-1 px-3 bg-white divide-y space-y-1">
                     <ul class="space-y-2 pb-2">
                         <li>
-                            <form action="#" method="GET" class="">
-                                <label for="mobile-search" class="sr-only">Search</label>
-                                <div class="relative">
-                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                        <svg class="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
-                                    </div>
-                                    <input type="text" name="email" id="mobile-search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-cyan-600 block w-full pl-10 p-2.5" placeholder="Search">
-                                </div>
-                            </form>
-                        </li>
-                        <li>
                             <a href="#" class="text-base text-gray-900 font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group">
                                 <div class="w-6 h-6 text-gray-500 group-hover:text-gray-900 text-center transition duration-75">
                                     <i class="fas fa-chart-line"></i>
                                 </div>
                                 <span class="ml-3">Panel</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-action="Products" asp-controller="Admin" class="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 flex items-center p-2 group ">
+                                <div class="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 text-center transition duration-75">
+                                    <i class="fas fa-shopping-bag"></i>
+                                </div>
+                                <span class="ml-3 flex-1 whitespace-nowrap">Productos</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 flex items-center p-2 group ">
+                                <div class="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 text-center transition duration-75">
+                                    <i class="far fa-money-bill-alt"></i>
+                                </div>
+                                <span class="ml-3 flex-1 whitespace-nowrap">Ventas</span>
                             </a>
                         </li>
                         <li>
@@ -46,23 +52,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="https://demo.themesberg.com/windster/e-commerce/products/" class="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 flex items-center p-2 group ">
-                                <div class="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 text-center transition duration-75">
-                                    <i class="fas fa-shopping-bag"></i>
-                                </div>
-                                <span class="ml-3 flex-1 whitespace-nowrap">Productos</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://demo.themesberg.com/windster/e-commerce/products/" class="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 flex items-center p-2 group ">
-                                <div class="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 text-center transition duration-75">
-                                    <i class="far fa-money-bill-alt"></i>
-                                </div>
-                                <span class="ml-3 flex-1 whitespace-nowrap">Ventas</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://demo.themesberg.com/windster-pro/kanban/" target="_blank" class="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 flex items-center p-2 group ">
+                            <a href="#" target="_blank" class="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 flex items-center p-2 group ">
                                 <div class="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 text-center transition duration-75">
                                     <i class="fas fa-store"></i>
                                 </div>
@@ -97,6 +87,7 @@
             </div>
         </div>
     </aside>
+    <!--Portatil-->
     <aside class="fixed z-10 w-screen bottom-0 left-0 flex lg:hidden flex-shrink-0 transition-width duration-75 border-t border-gray-200 rounded-t-xl">
         <nav class="w-full flex justify-center items-center px-3 bg-white divide-y space-y-1">
             <ul class="flex justify-around items-center space-x-2 py-2">
@@ -111,17 +102,17 @@
                 <li>
                     <a href="#" class="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 flex flex-col items-center p-2 group ">
                         <div class="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 text-center transition duration-75">
-                            <i class="fas fa-users"></i>
+                            <i class="fas fa-shopping-bag"></i>
                         </div>
-                        <span class="lg:ml-3 flex-1 whitespace-nowrap">Usuarios</span>
+                        <span class="lg:ml-3 flex-1 whitespace-nowrap">Productos</span>
                     </a>
                 </li>
                 <li>
                     <a href="#" class="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 flex flex-col items-center p-2 group ">
                         <div class="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 text-center transition duration-75">
-                            <i class="fas fa-shopping-bag"></i>
+                            <i class="far fa-money-bill-alt"></i>
                         </div>
-                        <span class="lg:ml-3 flex-1 whitespace-nowrap">Productos</span>
+                        <span class="lg:ml-3 flex-1 whitespace-nowrap">Ventas</span>
                     </a>
                 </li>
                 <li onclick="openModal('optionsModal')">
@@ -146,9 +137,9 @@
                             <li>
                                 <a href="#" class="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 flex items-center p-2 group ">
                                     <div class="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 text-center transition duration-75">
-                                        <i class="far fa-money-bill-alt"></i>
+                                        <i class="fas fa-users"></i>
                                     </div>
-                                    <span class="ml-3 flex-1 whitespace-nowrap">Ventas</span>
+                                    <span class="ml-3 flex-1 whitespace-nowrap">Usuarios</span>
                                 </a>
                             </li>
                             <li>
@@ -190,38 +181,6 @@
     <main class="lg:ml-64">
         @RenderBody()
     </main>
-    @* <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">InventarioYVenta.PL</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - InventarioYVenta.PL - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer> *@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/modal.js"></script>

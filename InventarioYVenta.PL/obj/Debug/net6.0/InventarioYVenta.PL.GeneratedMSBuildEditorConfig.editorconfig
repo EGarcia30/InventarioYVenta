@@ -10,6 +10,8 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = InventarioYVenta.PL
 build_property.RootNamespace = InventarioYVenta.PL
 build_property.ProjectDir = C:\Users\penad\Escritorio\ASP.NET\InventarioYVenta\InventarioYVenta.PL\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
@@ -22,6 +24,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/penad/Escritorio/ASP.NET/InventarioYVenta/InventarioYVenta.PL/Views/Admin/Dashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/penad/Escritorio/ASP.NET/InventarioYVenta/InventarioYVenta.PL/Views/Admin/Products.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUHJvZHVjdHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/penad/Escritorio/ASP.NET/InventarioYVenta/InventarioYVenta.PL/Views/Shared/Error.cshtml]

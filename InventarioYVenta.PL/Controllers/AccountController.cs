@@ -15,6 +15,7 @@ namespace InventarioYVenta.PL.Controllers
         {
 
         }
+        
         //Vista Login o Inicio de sesion
         [HttpGet]
         public ActionResult Index()
