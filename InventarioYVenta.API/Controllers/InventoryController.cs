@@ -41,29 +41,23 @@ namespace InventarioYVenta.API.Controllers
         }
 
         //Obtener un producto de inventario
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Inventory>> GetProduct(int? id)
+        [HttpGet]
+        public async Task<ActionResult<Inventory>> GetProduct(string search)
         {
             try
             {
-                if(id == null)
-                {
-                    return NotFound(new { message = "El id es nulo." });
-                }
+                if(search == null) return NotFound(new { message = "No se han enviado los datos Correctamente." });
 
-                var productBD = await _context.Inventories.FirstOrDefaultAsync(productBd => productBd.InventoryId.Equals(id));
+                var productBD = await _context.Inventories.Where(p => p.Name!.Contains(search)).ToListAsync();
 
-                if(productBD == null)
-                {
-                    return NotFound(new { message = "El producto en el inventario no encontrado." });
-                }
+                if(productBD == null) return NotFound(new { message = "El producto en el inventario no encontrado." });
 
                 return Ok(productBD);
 
             }
             catch (Exception ex)
             {
-                throw new Exception($"Error: {ex.Message}");
+                return BadRequest(new { message = $"Error: {ex.Message}" });
             }
         }
 
