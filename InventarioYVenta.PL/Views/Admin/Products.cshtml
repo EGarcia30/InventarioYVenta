@@ -33,38 +33,61 @@
                 </div>
                 <button type="button" data-modal-toggle="add-product-modal" class="text-white bg-cyan-600 hover:bg-cyan-700 focus:ring-4 focus:ring-cyan-200 font-medium inline-flex items-center rounded-lg text-sm px-3 py-2 text-center sm:ml-auto">
                 <svg class="-ml-1 mr-2 h-6 w-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"></path></svg>
-                Add product
+                Añadir Producto
                 </button>
             </div>
         </div>
     </div>
 </div>
-<div class="container mx-auto grid grid-cols-responsive place-items-center gap-8 lg:px-4 py-8">
+<div class="container mx-auto grid grid-cols-responsive place-items-center gap-8 lg:px-4 pt-8 pb-32 md:py-8">
 
     @if(ViewBag.Message != null){ <h1>@ViewBag.Message</h1> }
     else{
         foreach( var item in Model ){
-            <div class="relative w-64 max-w-xs overflow-hidden transform rounded-lg bg-white dark:bg-slate-800 shadow-md duration-300 hover:scale-105 hover:shadow-lg">
-                <div class="h-48 w-full flex justify-center items-center text-gray-500">
+            <div id="Products" class="relative w-64 max-w-xs overflow-hidden transform rounded-lg bg-white dark:bg-slate-800 shadow-md duration-300 hover:scale-105 hover:shadow-lg">
+                <div class="h-40 w-full flex justify-center items-center text-gray-500">
                     <i class="fas fa-shopping-bag text-6xl"></i>
                 </div>
-                <div class="w-full flex flex-col items-start px-4 pt-4">
-                    <h2 class="mb-2 text-lg font-medium dark:text-white text-gray-900">@(item.Name)</h2>
-                    <span class="px-2 py-1 @(item.Status == 1 || item.Amount != 0? "bg-green-800" : "bg-red-800") rounded">
+                <div class="w-full flex flex-col items-start p-4">
+                    <input class="inventoryId" type="hidden" value="@(item.InventoryId)"/>
+                    <h2 class="mb-2 text-lg font-medium dark:text-white text-gray-900 nameProduct">@(item.Name)</h2>
+                    <span class="flex justify-center items-center px-2 py-1 @(item.Status == 1 || item.Amount != 0? "bg-green-800" : "bg-red-800") rounded">
                             <p class="@(item.Status == 1 || item.Amount != 0? "text-green-300" : "text-red-300") text-xs">
-                                @(item.Status == 1 || item.Amount != 0? "Disponible" : "Agotado")
+                                @(item.Status == 1 || item.Amount != 0? "Disponible: " : "Agotado: ")
                             </p>
+                            <p id="amountBase" class="ml-2 @(item.Status == 1 || item.Amount != 0? "text-green-300" : "text-red-300") text-xs ">@(item.Amount)</p>
                     </span>
-                    <div class="flex items-center pt-4">
-                        <p class="text-base dark:text-gray-300 text-gray-700">Cantidad:</p>
-                        <p class="ml-2 text-base dark:text-gray-300 text-gray-700">@(item.Amount)</p>
+                    <input class="unitPurchasePrice" type="hidden" value="@(item.UnitPurchasePrice)"/>
+                    <div class="flex justify-between items-center w-full pt-4">
+                        <div class="flex justify-start items-center">
+                            $<p class="text-lg font-semibold text-gray-900 dark:text-white unitSalesPrice">@(item.UnitSalesPrice)</p>/u 
+                        </div>
+                        <div class="max-w-xs">
+                            <div class="relative flex items-center max-w-[8rem]">
+                                <button type="button" id="decrement-button" data-input-counter-decrement="quantity-input" class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-s-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
+                                    <svg class="w-3 h-3 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16"/>
+                                    </svg>
+                                </button>
+                                <input type="text" id="quantity-input" data-input-counter aria-describedby="helper-text-explanation" class="bg-gray-50 border-x-0 border-gray-300 h-11 text-center text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="0" value="0" required />
+                                <button type="button" id="increment-button" data-input-counter-increment="quantity-input" class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-e-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
+                                    <svg class="w-3 h-3 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="flex items-center pb-2">
-                        <p class="text-base dark:text-gray-300 text-gray-700">Precio de venta:</p>
-                        <p class="ml-2 text-lg font-semibold text-gray-900 dark:text-white">$@(item.UnitSalesPrice)</p>
-                    </div>
+                    <input class="status" type="hidden" value="@(item.Status)"/>
+                    <input class="createdAt" type="hidden" value="@(item.CreatedAt)"/>
+                    <input class="updatedAt" type="hidden" value="@(item.UpdatedAt)"/>
+                    <input class="deletedAt" type="hidden" value="@(item.DeletedAt)"/> 
                 </div>
+                <a href="#" class="block px-2 py-1 rounded bg-red-600 text-center text-white sale">Añadir venta</a>
             </div>
         }
     } 
 </div>
+@section Scripts{
+    <script src="~/js/sales.js"></script>
+}

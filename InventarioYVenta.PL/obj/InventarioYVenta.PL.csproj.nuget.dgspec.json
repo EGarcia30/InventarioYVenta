@@ -29,8 +29,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.Models\\InventarioYVenta.Models.csproj": {
-                "projectPath": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.Models\\InventarioYVenta.Models.csproj"
+              "c:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.Models\\InventarioYVenta.Models.csproj": {
+                "projectPath": "c:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.Models\\InventarioYVenta.Models.csproj"
               }
             }
           }
@@ -81,14 +81,14 @@
         }
       }
     },
-    "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.Models\\InventarioYVenta.Models.csproj": {
+    "c:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.Models\\InventarioYVenta.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.Models\\InventarioYVenta.Models.csproj",
+        "projectUniqueName": "c:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.Models\\InventarioYVenta.Models.csproj",
         "projectName": "InventarioYVenta.Models",
-        "projectPath": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.Models\\InventarioYVenta.Models.csproj",
+        "projectPath": "c:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.Models\\InventarioYVenta.Models.csproj",
         "packagesPath": "C:\\Users\\penad\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.Models\\obj\\",
+        "outputPath": "c:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.Models\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\penad\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -170,8 +170,8 @@
               "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.DAL\\InventarioYVenta.DAL.csproj": {
                 "projectPath": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.DAL\\InventarioYVenta.DAL.csproj"
               },
-              "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.Models\\InventarioYVenta.Models.csproj": {
-                "projectPath": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.Models\\InventarioYVenta.Models.csproj"
+              "c:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.Models\\InventarioYVenta.Models.csproj": {
+                "projectPath": "c:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.Models\\InventarioYVenta.Models.csproj"
               }
             }
           }

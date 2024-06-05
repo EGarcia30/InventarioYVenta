@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "72OOlPS+w5p5kmJkFmziD4zrS+S9dQlbPuoI77hOOhA=",
+  "Hash": "lZBm6eOv3iYafI4ArnfRJ+VMtHJs1yoL1nzTrgPtjtQ=",
   "Source": "InventarioYVenta.PL",
   "BasePath": "_content/InventarioYVenta.PL",
   "Mode": "Default",
@@ -186,6 +186,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\password.js"
+    },
+    {
+      "Identity": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.PL\\wwwroot\\js\\sales.js",
+      "SourceId": "InventarioYVenta.PL",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.PL\\wwwroot\\",
+      "BasePath": "_content/InventarioYVenta.PL",
+      "RelativePath": "js/sales.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\sales.js"
     },
     {
       "Identity": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.PL\\wwwroot\\js\\site.js",

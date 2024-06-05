@@ -33,6 +33,10 @@
       "PackagePath": "staticwebassets\\js\\password.js"
     },
     {
+      "Id": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.PL\\wwwroot\\js\\sales.js",
+      "PackagePath": "staticwebassets\\js\\sales.js"
+    },
+    {
       "Id": "C:\\Users\\penad\\Escritorio\\ASP.NET\\InventarioYVenta\\InventarioYVenta.PL\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
